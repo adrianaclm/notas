@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis notas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="contenedor-notas">
+      <h1>Mis Notas</h1>
+
+      <div class="nueva-nota">
+        <textarea
+          type="text"
+          id="nueva-nota-texto"
+          placeholder="Algo para recordar ..."
+          class="campo-entrada"
+        ></textarea>
+
+        <button id="crear-nota-btn">Crear</button>
+      </div>
+
+      <div class="lista-notas"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

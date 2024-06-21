@@ -1,0 +1,129 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.contenedor-notas {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  line-height: 38.4px;
+}
+
+.nueva-nota {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nueva-nota button {
+  width: 99%;
+  height: 45px;
+  background-color: #4f4f4f;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.lista-notas {
+  gap: 20px; /* Espacio entre notas */
+  justify-content: center; /* Centrar horizontalmente */
+}
+
+.nota {
+  display: flex; /* Habilitar flexbox */
+  align-items: flex-end;
+  width: 91%;
+  height: auto;
+  padding: 16px;
+  background-color: #fff;
+  border: 2px solid #4f4f4f;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.nota h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.nota p {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.acciones {
+  text-align: right;
+}
+
+.acciones button {
+  padding: 4px, 16px, 4px, 16px;
+  background-color: #e0e0e0;
+  color: #4f4f4f;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  /* line-height: 21.6px; */
+  width: 83px;
+  height: 30px;
+}
+
+#nueva-nota-texto {
+  width: 92%;
+  height: 120px;
+  background-color: #fff;
+  border: 2px solid #4f4f4f;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  padding-left: 10px; /* Ajusta el valor según tus necesidades */
+}
+
+.campo-entrada {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+.boton-borrar {
+  padding: 4px, 16px, 4px, 16px;
+  background-color: #e0e0e0;
+  color: #4f4f4f;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  line-height: 21.6px;
+  width: 83px;
+  height: 30px;
+}
+
+.notaP {
+  display: flex; /* Habilitar flexbox */
+  align-items: flex-end;
+  width: 90%;
+  height: auto;
+  word-wrap: break-word; /* Ajustar el texto al ancho del contenedor */
+  background-color: #fff;
+}
