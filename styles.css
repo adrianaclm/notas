@@ -46,6 +46,7 @@ h1 {
 
 .nota {
   display: flex; /* Habilitar flexbox */
+  flex-direction: column; /* Asegurar que los botones estén uno debajo del otro */
   align-items: flex-end;
   width: 91%;
   height: auto;
@@ -65,14 +66,26 @@ h1 {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  word-wrap: break-word; /* Ajustar el texto al ancho del contenedor */
+  word-break: break-word; /* Romper palabras largas para que no se desborden */
+  overflow-wrap: break-word; /* Ajustar el texto al ancho del contenedor */
+  width: 100%; /* Asegurar que el texto ocupe todo el ancho disponible */
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row; /* Asegura que los botones se apilen verticalmente */
+  gap: 5px; /* Espacio entre los botones */
 }
 
 .acciones {
   text-align: right;
 }
 
-.acciones button {
-  padding: 4px, 16px, 4px, 16px;
+.acciones button,
+.boton-borrar,
+.boton-editar {
+  padding: 4px 16px;
   background-color: #e0e0e0;
   color: #4f4f4f;
   border: none;
@@ -80,7 +93,6 @@ h1 {
   cursor: pointer;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  /* line-height: 21.6px; */
   width: 83px;
   height: 30px;
 }
@@ -105,25 +117,13 @@ h1 {
   font-family: "Roboto", sans-serif;
 }
 
-.boton-borrar {
-  padding: 4px, 16px, 4px, 16px;
-  background-color: #e0e0e0;
-  color: #4f4f4f;
-  border: none;
-  border-radius: 16px;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  line-height: 21.6px;
-  width: 83px;
-  height: 30px;
-}
-
 .notaP {
   display: flex; /* Habilitar flexbox */
   align-items: flex-end;
-  width: 90%;
+  width: 100%; /* Asegurar que el texto ocupe todo el ancho disponible */
   height: auto;
   word-wrap: break-word; /* Ajustar el texto al ancho del contenedor */
+  word-break: break-word; /* Romper palabras largas para que no se desborden */
+  overflow-wrap: break-word; /* Ajustar el texto al ancho del contenedor */
   background-color: #fff;
 }

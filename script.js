@@ -22,6 +22,16 @@ function crearNuevaNota() {
     botonBorrar.classList.add("boton-borrar"); // Aplicar la clase CSS
     botonBorrar.addEventListener("click", eliminarNota);
 
+    const botonEditar = document.createElement("button");
+    botonEditar.textContent = "Editar";
+    botonEditar.classList.add("boton-editar");
+    botonEditar.addEventListener("click", editarNota);
+
+    const btnContainer = document.createElement("div");
+    btnContainer.classList.add("btnContainer");
+    btnContainer.appendChild(botonBorrar);
+    btnContainer.appendChild(botonEditar);
+
     const notasAlmacenadas = localStorage.getItem("notas") || "[]"; // Obtener notas o array vacío
     const notasParseadas = JSON.parse(notasAlmacenadas); // Convertir JSON a array
     const notaObj = { titulo: textoNota }; // Crear objeto nota
@@ -31,13 +41,11 @@ function crearNuevaNota() {
     clearTimeout(crearNuevaNotaTimeout); // Limpiar la llamada anterior
 
     crearNuevaNotaTimeout = setTimeout(() => {
-      // Almacenar en localStorage
       localStorage.setItem("notas", notasString); // Almacenar en localStorage
 
-      // Crear y mostrar la nueva nota en el DOM
       listaNotas.appendChild(nuevaNota);
       nuevaNota.appendChild(notaTitulo);
-      nuevaNota.appendChild(botonBorrar);
+      nuevaNota.appendChild(btnContainer);
       nuevaNotaInput.value = ""; // Limpiar el campo de entrada
     }, 200); // Ajusta
   }
@@ -70,6 +78,31 @@ function eliminarNota(event) {
   listaNotas.removeChild(nota);
 }
 
+function editarNota(event) {
+  const nota = event.target.closest(".nota");
+  const notaTitulo = nota.querySelector(".notaP");
+
+  const nuevoTexto = prompt(
+    "Edita el texto de la nota:",
+    notaTitulo.textContent
+  );
+
+  if (nuevoTexto) {
+    const notasAlmacenadas = localStorage.getItem("notas") || "[]";
+    const notasParseadas = JSON.parse(notasAlmacenadas);
+    const indiceNota = notasParseadas.findIndex(
+      (nota) => nota.titulo === notaTitulo.textContent
+    );
+
+    if (indiceNota !== -1) {
+      notasParseadas[indiceNota].titulo = nuevoTexto; // Actualizar el título en el array
+      const notasString = JSON.stringify(notasParseadas);
+      localStorage.setItem("notas", notasString); // Actualizar localStorage
+      notaTitulo.textContent = nuevoTexto; // Actualizar el texto en el DOM
+    }
+  }
+}
+
 function cargarNotas() {
   const notasAlmacenadas = localStorage.getItem("notas"); // Obtener notas del localStorage
   if (notasAlmacenadas) {
@@ -93,8 +126,19 @@ function crearNotaHTML(nota) {
   botonBorrar.classList.add("boton-borrar");
   botonBorrar.addEventListener("click", eliminarNota);
 
+  const botonEditar = document.createElement("button");
+  botonEditar.textContent = "Editar";
+  botonEditar.classList.add("boton-editar");
+  botonEditar.addEventListener("click", editarNota);
+
+  const btnContainer = document.createElement("div");
+  btnContainer.classList.add("btnContainer");
+  btnContainer.appendChild(botonBorrar);
+  btnContainer.appendChild(botonEditar);
+
   listaNotas.appendChild(nuevaNota);
   nuevaNota.appendChild(notaTitulo);
-  nuevaNota.appendChild(botonBorrar);
+  nuevaNota.appendChild(btnContainer);
 }
+
 document.addEventListener("DOMContentLoaded", cargarNotas);
